@@ -1,0 +1,14 @@
+{
+  "name": "project-8",
+  "version": "1.0.0",
+  "description": "Project 8",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Megan Roberts",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
