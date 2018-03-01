@@ -96,7 +96,9 @@ gulp.task('build', ['clean'], ()=>{
     //start the server
     browserSync.init({
         server: {
-            baseDir: './'
+            // baseDir: './'
+            port: process.env.PORT || 3000,
+            proxy: process.env.IP || "localhost:3000"
         }
     });
 });
