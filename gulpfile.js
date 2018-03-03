@@ -88,11 +88,7 @@ gulp.task('watch', ()=>{
     gulp.watch('js/**/*.js', ['scripts']).on('change', browserSync.reload);
 });
 
-//build task
-//call the clean task first and let it finish
-gulp.task('build', ['clean'], ()=>{
-    //start the other tasks
-    gulp.start(['scripts', 'styles', 'images', 'watch']);
+gulp.task('serve', ['scripts', 'styles', 'images', 'watch'], ()=>{
     //start the server
     browserSync.init({
         server: {
@@ -101,6 +97,13 @@ gulp.task('build', ['clean'], ()=>{
             proxy: process.env.IP || "localhost:3000"
         }
     });
+});
+
+//build task
+//call the clean task first and let it finish
+gulp.task('build', ['clean'], ()=>{
+    //start the other tasks
+    gulp.start(['serve']);
 });
 
 //call the build task to run all tasks
